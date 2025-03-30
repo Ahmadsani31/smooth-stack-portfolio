@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -33,14 +34,16 @@ const Index = () => {
 
   return (
     <div className="overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <About />
-      <TechStack />
-      <Projects />
-      <Experience />
-      <Contact />
-      <Footer />
+      <AnimatePresence>
+        <Navbar />
+        <Hero />
+        <About />
+        <TechStack />
+        <Projects />
+        <Experience />
+        <Contact />
+        <Footer />
+      </AnimatePresence>
     </div>
   );
 };
