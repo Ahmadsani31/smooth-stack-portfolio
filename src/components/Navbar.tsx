@@ -83,20 +83,23 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="fixed inset-0 bg-deep-blue/95 z-40 flex flex-col items-center justify-center md:hidden animate-fade-in mobile-menu">
-          <button
-            className="absolute top-4 right-4 text-foreground"
-            onClick={() => setIsOpen(false)}
-            aria-label="Close menu"
-          >
-            <X size={24} />
-          </button>
-          <ul className="flex flex-col space-y-6 text-center">
+        <div className="fixed inset-0 top-0 bg-deep-blue/95 z-40 flex flex-col items-center justify-center md:hidden animate-fade-in mobile-menu">
+          <div className="absolute top-0 left-0 right-0 flex justify-between items-center p-4">
+            <a href="#home" className="text-xl font-bold text-highlight font-poppins">DevPortfolio</a>
+            <button
+              className="text-foreground"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
+          <ul className="flex flex-col space-y-6 text-center mt-16">
             {navItems.map((item) => (
               <li key={item.name} className="text-xl">
                 <a
                   href={item.href}
-                  className="text-foreground hover:text-highlight transition-colors duration-300 px-4 py-2"
+                  className="text-foreground hover:text-highlight transition-colors duration-300 px-4 py-2 block"
                   onClick={handleLinkClick}
                 >
                   {item.name}

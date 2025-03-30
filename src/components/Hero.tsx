@@ -36,16 +36,16 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 md:gap-12">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:w-1/2 text-center lg:text-left order-2 lg:order-1 mt-6 lg:mt-0"
+            className="w-full lg:w-1/2 text-center lg:text-left mt-6 lg:mt-0"
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 mt-6 lg:mt-0">
               <span className="block mb-2">Hello, I'm</span>
-              <span className="text-highlight sm:typing-effect overflow-hidden whitespace-nowrap">Full Stack Web Developer</span>
+              <span className="text-highlight block typing-animation overflow-hidden">Full Stack Web Developer</span>
             </h1>
             <p className="text-base md:text-lg text-gray-300 mt-6 mb-8 max-w-xl mx-auto lg:mx-0 animate-fade-in opacity-0" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
               I build modern web applications with clean, efficient code and outstanding user experiences.
@@ -64,7 +64,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:w-1/2 relative parallax order-1 lg:order-2"
+            className="w-full lg:w-1/2 relative parallax flex justify-center"
           >
             <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 bg-gradient-to-br from-highlight to-purple-800 rounded-full mx-auto flex items-center justify-center overflow-hidden">
               <div className="absolute inset-1 bg-deep-blue rounded-full flex items-center justify-center">

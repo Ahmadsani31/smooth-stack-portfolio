@@ -100,24 +100,7 @@
   }
 }
 
-/* Typing effect styles */
-.typing-effect {
-  width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid transparent;
-  display: inline-block;
-  animation: typing 3s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
-}
-
-/* On smaller screens, disable the typing effect and show full text immediately */
-@media (max-width: 640px) {
-  .typing-effect {
-    width: 100%;
-    animation: blink-caret 0.75s step-end infinite;
-  }
-}
-
+/* Typing animation styles - fixed for mobile */
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
@@ -126,6 +109,23 @@
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: #8b5cf6 }
+}
+
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 3px solid #8b5cf6;
+  white-space: normal;
+  word-break: break-word;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+/* Apply typing animation on larger screens only */
+@media (min-width: 768px) {
+  .typing-animation {
+    white-space: nowrap;
+    animation: typing 3s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+  }
 }
 
 /* Custom animation for parallax */
@@ -138,20 +138,12 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Responsive text adjustments */
-@media (max-width: 640px) {
-  .typing-effect {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-}
-
 /* Mobile-specific styles */
 @media (max-width: 768px) {
   /* Improve touch targets */
   button, a {
-    min-height: 40px;
-    min-width: 40px;
+    min-height: 44px;
+    min-width: 44px;
   }
 
   /* Improve form inputs */
@@ -162,6 +154,13 @@ html {
   /* Better spacing for mobile navigation */
   .navbar-mobile-item {
     padding: 12px 16px;
+  }
+  
+  /* Ensure mobile menu takes full height */
+  .mobile-menu {
+    height: 100vh;
+    overflow-y: auto;
+    padding: 1rem;
   }
 }
 
@@ -218,5 +217,12 @@ button:focus {
 @media (max-width: 640px) {
   .carousel-dot {
     @apply w-4 h-4;
+  }
+}
+
+/* Improved mobile navigation */
+@media (max-width: 768px) {
+  .mobile-menu {
+    width: 100%;
   }
 }
