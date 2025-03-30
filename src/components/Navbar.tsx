@@ -29,13 +29,20 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when clicking on a link
+  const handleLinkClick = () => {
+    if (window.innerWidth < 768) {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <nav className={cn(
       'fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-sm',
       scrolled ? 'bg-deep-blue/80 shadow-lg py-2' : 'bg-transparent py-4'
     )}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="text-2xl font-bold text-highlight font-poppins">DevPortfolio</a>
+        <a href="#home" className="text-xl md:text-2xl font-bold text-highlight font-poppins">DevPortfolio</a>
         
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-8 items-center">
@@ -53,8 +60,9 @@ const Navbar = () => {
 
         {/* Mobile Navigation Button */}
         <button
-          className="md:hidden text-foreground"
+          className="md:hidden text-foreground p-2"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -63,13 +71,20 @@ const Navbar = () => {
       {/* Mobile Navigation Menu */}
       {isOpen && (
         <div className="fixed inset-0 bg-deep-blue/95 z-40 flex flex-col items-center justify-center md:hidden animate-fade-in">
-          <ul className="flex flex-col space-y-8 text-center">
+          <button
+            className="absolute top-4 right-4 text-foreground"
+            onClick={() => setIsOpen(false)}
+            aria-label="Close menu"
+          >
+            <X size={24} />
+          </button>
+          <ul className="flex flex-col space-y-6 text-center">
             {navItems.map((item) => (
               <li key={item.name} className="text-xl">
                 <a
                   href={item.href}
                   className="text-foreground hover:text-highlight transition-colors duration-300"
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleLinkClick}
                 >
                   {item.name}
                 </a>

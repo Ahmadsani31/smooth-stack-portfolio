@@ -61,7 +61,7 @@
 
   /* Custom utility classes */
   .section-padding {
-    @apply py-16 px-4 md:py-24;
+    @apply py-12 px-4 sm:py-16 md:py-20 lg:py-24;
   }
 
   .hover-effect {
@@ -90,6 +90,13 @@
   
   .timeline-dot {
     @apply absolute -left-[9px] rounded-full bg-highlight w-4 h-4;
+  }
+
+  /* Mobile timeline adjustments */
+  @media (max-width: 640px) {
+    .timeline-container {
+      @apply pl-6;
+    }
   }
 }
 
@@ -121,4 +128,38 @@
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+}
+
+/* Responsive text adjustments */
+@media (max-width: 640px) {
+  .typing-effect {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  /* Improve touch targets */
+  button, a {
+    @apply min-h-10 min-w-10;
+  }
+
+  /* Improve form inputs */
+  input, textarea, select {
+    @apply text-base;
+  }
+}
+
+/* Fix mobile scrolling issues */
+@media (max-width: 640px) {
+  .overflow-hidden {
+    overflow-x: hidden;
+  }
+}
+
+/* Fix mobile horizontal overflow */
+body {
+  overflow-x: hidden;
+  width: 100%;
 }

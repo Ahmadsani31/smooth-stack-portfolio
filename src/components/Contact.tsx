@@ -2,13 +2,15 @@
 import React, { useState } from 'react';
 import { Send, Github, Linkedin, Mail, Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { motion } from 'framer-motion';
 
 const ContactCard = ({ icon: Icon, title, value, link }: { icon: React.ElementType, title: string, value: string, link?: string }) => (
-  <a 
+  <motion.a 
+    whileHover={{ y: -5 }}
     href={link || '#'} 
     target={link ? '_blank' : '_self'} 
     rel="noopener noreferrer"
-    className="flex items-start gap-4 bg-card rounded-xl p-6 hover:shadow-lg hover:shadow-highlight/10 transition-all duration-300 hover:-translate-y-1"
+    className="flex items-start gap-4 bg-card rounded-xl p-6 hover:shadow-lg hover:shadow-highlight/10 transition-all duration-300"
   >
     <div className="bg-highlight/20 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
       <Icon className="text-highlight" size={24} />
@@ -17,7 +19,7 @@ const ContactCard = ({ icon: Icon, title, value, link }: { icon: React.ElementTy
       <h3 className="text-lg font-semibold mb-1">{title}</h3>
       <p className="text-gray-300">{value}</p>
     </div>
-  </a>
+  </motion.a>
 );
 
 const Contact = () => {
@@ -56,55 +58,96 @@ const Contact = () => {
     }, 1500);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
   return (
     <section id="contact" className="section-padding bg-gradient-to-t from-deep-blue to-[#121726] relative">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-40 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTI4MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iIzEyMTcyNiI+PHBhdGggZD0iTTEyODAgMy40QzEwNTAuNTkgMTggMTAxOS40IDg0Ljg5IDczNC40MiA4NC44OWMtMzIwIDAtMzIwLTg0Ljg1LTY0MC04NC44NXpNMzIwIDE0MC4wMVoiLz48L2c+PC9zdmc+')]" style={{ backgroundSize: '100% 100%', transform: 'rotate(180deg)' }}></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 md:mb-16"
+        >
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Get In Touch</h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Have a project in mind or want to work together? Feel free to reach out!
           </p>
           <div className="w-20 h-1 bg-highlight mx-auto mt-4"></div>
-        </div>
+        </motion.div>
         
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className="animate-slide-in-left opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
-            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="order-2 md:order-1"
+          >
+            <h3 className="text-xl md:text-2xl font-semibold mb-6">Contact Information</h3>
             <div className="grid gap-6">
-              <ContactCard 
-                icon={Mail}
-                title="Email"
-                value="your.email@example.com"
-                link="mailto:your.email@example.com"
-              />
-              <ContactCard 
-                icon={Phone}
-                title="Phone"
-                value="+62 812 3456 7890"
-                link="tel:+6281234567890"
-              />
-              <ContactCard 
-                icon={Github}
-                title="GitHub"
-                value="github.com/yourusername"
-                link="https://github.com/yourusername"
-              />
-              <ContactCard 
-                icon={Linkedin}
-                title="LinkedIn"
-                value="linkedin.com/in/yourusername"
-                link="https://linkedin.com/in/yourusername"
-              />
+              <motion.div variants={itemVariants}>
+                <ContactCard 
+                  icon={Mail}
+                  title="Email"
+                  value="your.email@example.com"
+                  link="mailto:your.email@example.com"
+                />
+              </motion.div>
+              <motion.div variants={itemVariants}>
+                <ContactCard 
+                  icon={Phone}
+                  title="Phone"
+                  value="+62 812 3456 7890"
+                  link="tel:+6281234567890"
+                />
+              </motion.div>
+              <motion.div variants={itemVariants}>
+                <ContactCard 
+                  icon={Github}
+                  title="GitHub"
+                  value="github.com/yourusername"
+                  link="https://github.com/yourusername"
+                />
+              </motion.div>
+              <motion.div variants={itemVariants}>
+                <ContactCard 
+                  icon={Linkedin}
+                  title="LinkedIn"
+                  value="linkedin.com/in/yourusername"
+                  link="https://linkedin.com/in/yourusername"
+                />
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
           
-          <div className="animate-slide-in-right opacity-0" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
-            <h3 className="text-2xl font-semibold mb-6">Send Me a Message</h3>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="order-1 md:order-2"
+          >
+            <h3 className="text-xl md:text-2xl font-semibold mb-6">Send Me a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Name</label>
                   <input
@@ -158,9 +201,10 @@ const Contact = () => {
                   placeholder="Your message..."
                 />
               </div>
-              <button
+              <motion.button
                 type="submit"
                 disabled={loading}
+                whileTap={{ scale: 0.98 }}
                 className="bg-highlight hover:bg-highlight/80 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 w-full"
               >
                 {loading ? (
@@ -174,9 +218,9 @@ const Contact = () => {
                     <span>Send Message</span>
                   </>
                 )}
-              </button>
+              </motion.button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
