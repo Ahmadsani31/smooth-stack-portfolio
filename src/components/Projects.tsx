@@ -15,7 +15,7 @@ interface ProjectProps {
   description: string;
   longDescription?: string;
   image: string;
-  images?: ProjectImage[];
+  images: ProjectImage[]; // Changed from optional to required
   technologies: string[];
   features?: string[];
   liveLink?: string;
