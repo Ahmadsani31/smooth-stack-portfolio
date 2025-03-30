@@ -110,6 +110,14 @@
   animation: typing 3s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
 }
 
+/* On smaller screens, disable the typing effect and show full text immediately */
+@media (max-width: 640px) {
+  .typing-effect {
+    width: 100%;
+    animation: blink-caret 0.75s step-end infinite;
+  }
+}
+
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
@@ -142,12 +150,18 @@ html {
 @media (max-width: 768px) {
   /* Improve touch targets */
   button, a {
-    @apply min-h-10 min-w-10;
+    min-height: 40px;
+    min-width: 40px;
   }
 
   /* Improve form inputs */
   input, textarea, select {
-    @apply text-base;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+  
+  /* Better spacing for mobile navigation */
+  .navbar-mobile-item {
+    padding: 12px 16px;
   }
 }
 
@@ -162,4 +176,47 @@ html {
 body {
   overflow-x: hidden;
   width: 100%;
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+/* Use viewport height correctly on mobile */
+.min-h-screen {
+  min-height: 100vh; /* fallback */
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Mobile friendly project cards */
+@media (max-width: 640px) {
+  .project-card {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Responsive modal */
+.modal-content {
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Improve form control accessibility */
+input:focus, 
+textarea:focus, 
+select:focus,
+button:focus {
+  @apply outline-none ring-2 ring-highlight;
+}
+
+/* Make carousel dots more touch-friendly */
+.carousel-dot {
+  @apply w-3 h-3;
+}
+
+@media (max-width: 640px) {
+  .carousel-dot {
+    @apply w-4 h-4;
+  }
 }

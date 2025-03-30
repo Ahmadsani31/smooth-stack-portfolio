@@ -101,7 +101,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="order-2 md:order-1"
           >
-            <h3 className="text-xl md:text-2xl font-semibold mb-6">Contact Information</h3>
+            <h3 className="text-xl md:text-2xl font-semibold mb-6 text-center md:text-left">Contact Information</h3>
             <div className="grid gap-6">
               <motion.div variants={itemVariants}>
                 <ContactCard 
@@ -145,7 +145,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="order-1 md:order-2"
           >
-            <h3 className="text-xl md:text-2xl font-semibold mb-6">Send Me a Message</h3>
+            <h3 className="text-xl md:text-2xl font-semibold mb-6 text-center md:text-left">Send Me a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>

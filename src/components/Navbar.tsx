@@ -36,6 +36,19 @@ const Navbar = () => {
     }
   };
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (isOpen && !target.closest('.mobile-menu') && !target.closest('.menu-button')) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
+
   return (
     <nav className={cn(
       'fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-sm',
@@ -60,7 +73,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Button */}
         <button
-          className="md:hidden text-foreground p-2"
+          className="md:hidden text-foreground p-2 menu-button"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -70,7 +83,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="fixed inset-0 bg-deep-blue/95 z-40 flex flex-col items-center justify-center md:hidden animate-fade-in">
+        <div className="fixed inset-0 bg-deep-blue/95 z-40 flex flex-col items-center justify-center md:hidden animate-fade-in mobile-menu">
           <button
             className="absolute top-4 right-4 text-foreground"
             onClick={() => setIsOpen(false)}
@@ -83,7 +96,7 @@ const Navbar = () => {
               <li key={item.name} className="text-xl">
                 <a
                   href={item.href}
-                  className="text-foreground hover:text-highlight transition-colors duration-300"
+                  className="text-foreground hover:text-highlight transition-colors duration-300 px-4 py-2"
                   onClick={handleLinkClick}
                 >
                   {item.name}

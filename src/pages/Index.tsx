@@ -50,6 +50,9 @@ const Index = () => {
     
     setVH();
     window.addEventListener('resize', setVH);
+    
+    // Add passive event listener for improved mobile scrolling performance
+    document.addEventListener('touchstart', function() {}, {passive: true});
 
     return () => {
       document.removeEventListener('click', handleAnchorClick);

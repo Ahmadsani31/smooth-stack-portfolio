@@ -41,20 +41,20 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:w-1/2 text-center lg:text-left"
+            className="lg:w-1/2 text-center lg:text-left order-2 lg:order-1 mt-6 lg:mt-0"
           >
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4">
               <span className="block mb-2">Hello, I'm</span>
-              <span className="text-highlight typing-effect overflow-hidden whitespace-nowrap">Full Stack Web Developer</span>
+              <span className="text-highlight sm:typing-effect overflow-hidden whitespace-nowrap">Full Stack Web Developer</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 mt-6 mb-8 max-w-xl mx-auto lg:mx-0 animate-fade-in opacity-0" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
+            <p className="text-base md:text-lg text-gray-300 mt-6 mb-8 max-w-xl mx-auto lg:mx-0 animate-fade-in opacity-0" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
               I build modern web applications with clean, efficient code and outstanding user experiences.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in opacity-0" style={{ animationDelay: '1.5s', animationFillMode: 'forwards' }}>
-              <a href="#projects" className="bg-highlight hover:bg-highlight/80 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-highlight/30">
+              <a href="#projects" className="bg-highlight hover:bg-highlight/80 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-highlight/30 w-full sm:w-auto text-center">
                 View Projects
               </a>
-              <a href="#contact" className="border border-highlight text-highlight hover:bg-highlight/10 font-medium py-3 px-8 rounded-full transition-all duration-300">
+              <a href="#contact" className="border border-highlight text-highlight hover:bg-highlight/10 font-medium py-3 px-8 rounded-full transition-all duration-300 w-full sm:w-auto text-center">
                 Contact Me
               </a>
             </div>
@@ -64,14 +64,14 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:w-1/2 relative parallax mt-12 lg:mt-0"
+            className="lg:w-1/2 relative parallax order-1 lg:order-2"
           >
-            <div className="relative w-60 h-60 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 bg-gradient-to-br from-highlight to-purple-800 rounded-full mx-auto flex items-center justify-center overflow-hidden">
+            <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 bg-gradient-to-br from-highlight to-purple-800 rounded-full mx-auto flex items-center justify-center overflow-hidden">
               <div className="absolute inset-1 bg-deep-blue rounded-full flex items-center justify-center">
                 <img 
                   src="https://placehold.co/600x600/1a1e2d/8b5cf6?text=Your+Photo"
                   alt="Developer Portrait" 
-                  className="rounded-full w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover"
+                  className="rounded-full w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover"
                 />
               </div>
             </div>

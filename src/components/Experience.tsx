@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Calendar, Briefcase, Award, Code2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 

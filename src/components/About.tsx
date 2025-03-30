@@ -52,6 +52,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="text-center md:text-left"
           >
             <h3 className="text-xl md:text-2xl font-semibold mb-4">Full Stack Web Developer with <span className="text-highlight">Passion for Building</span> Robust Applications</h3>
             <p className="text-gray-300 mb-6">
@@ -62,11 +63,11 @@ const About = () => {
               With a background in both front-end and back-end development, I approach each project with a holistic view, ensuring all components work together seamlessly 
               to create an exceptional user experience.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contact" className="bg-highlight hover:bg-highlight/80 text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-highlight/30">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a href="#contact" className="bg-highlight hover:bg-highlight/80 text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-highlight/30 w-full sm:w-auto text-center">
                 Get In Touch
               </a>
-              <a href="#" className="border border-highlight text-highlight hover:bg-highlight/10 font-medium py-2 px-6 rounded-lg transition-all duration-300">
+              <a href="#" className="border border-highlight text-highlight hover:bg-highlight/10 font-medium py-2 px-6 rounded-lg transition-all duration-300 w-full sm:w-auto text-center">
                 Download CV
               </a>
             </div>
