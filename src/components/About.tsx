@@ -6,13 +6,13 @@ import { motion } from 'framer-motion';
 const AboutCard = ({ icon: Icon, title, description }: { icon: React.ElementType, title: string, description: string }) => (
   <motion.div 
     whileHover={{ y: -5 }}
-    className="bg-white rounded-xl p-6 shadow-md hover:shadow-highlight/20 transition-all duration-300"
+    className="bg-card rounded-xl p-6 shadow-lg hover:shadow-highlight/20 transition-all duration-300"
   >
-    <div className="bg-highlight/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+    <div className="bg-highlight/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
       <Icon className="text-highlight" size={24} />
     </div>
-    <h3 className="text-lg font-semibold mb-2 text-text-primary">{title}</h3>
-    <p className="text-text-secondary">{description}</p>
+    <h3 className="text-lg font-semibold mb-2">{title}</h3>
+    <p className="text-gray-400">{description}</p>
   </motion.div>
 );
 
@@ -33,7 +33,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="section-padding bg-white relative overflow-hidden py-16 md:py-24 px-4">
+    <section id="about" className="section-padding bg-deep-blue relative overflow-hidden py-16 md:py-24 px-4">
       <div className="container mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,7 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-text-primary">About Me</h2>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">About Me</h2>
           <div className="w-20 h-1 bg-highlight mx-auto"></div>
         </motion.div>
         
@@ -54,12 +54,12 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center md:text-left"
           >
-            <h3 className="text-xl md:text-2xl font-semibold mb-4 text-text-primary">Full Stack Web Developer with <span className="text-highlight">Passion for Building</span> Robust Applications</h3>
-            <p className="text-text-secondary mb-6">
+            <h3 className="text-xl md:text-2xl font-semibold mb-4">Full Stack Web Developer with <span className="text-highlight">Passion for Building</span> Robust Applications</h3>
+            <p className="text-gray-300 mb-6">
               I'm a passionate and detail-oriented Full Stack Web Developer with extensive experience in building scalable, efficient, and user-friendly web applications. 
               My expertise lies in combining my technical skills with creative problem-solving to create solutions that not only meet but exceed client expectations.
             </p>
-            <p className="text-text-secondary mb-6">
+            <p className="text-gray-300 mb-6">
               With a background in both front-end and back-end development, I approach each project with a holistic view, ensuring all components work together seamlessly 
               to create an exceptional user experience.
             </p>
