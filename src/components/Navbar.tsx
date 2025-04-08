@@ -75,7 +75,7 @@ const Navbar = () => {
             <li key={item.name}>
               <a
                 href={item.href}
-                className="text-gray-800 hover:text-highlight transition-colors duration-300 py-2 px-3"
+                className="text-text-primary hover:text-highlight transition-colors duration-300 py-2 px-3"
               >
                 {item.name}
               </a>
@@ -85,7 +85,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Button */}
         <button
-          className="md:hidden text-gray-800 p-3 menu-button rounded-lg hover:bg-gray-100"
+          className="md:hidden text-text-primary p-3 menu-button rounded-lg hover:bg-gray-100"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -99,7 +99,7 @@ const Navbar = () => {
           <div className="sticky top-0 z-10 bg-white border-b border-gray-200 p-4 flex justify-between items-center">
             <a href="#home" className="text-xl font-bold text-highlight font-poppins">DevPortfolio</a>
             <button
-              className="text-gray-800 p-2 hover:bg-gray-100 rounded-md"
+              className="text-text-primary p-2 hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}
               aria-label="Close menu"
             >
@@ -112,7 +112,7 @@ const Navbar = () => {
                 <li key={item.name} className="text-xl">
                   <a
                     href={item.href}
-                    className="text-gray-800 hover:text-highlight transition-colors duration-300 px-4 py-4 block"
+                    className="text-text-primary hover:text-highlight transition-colors duration-300 px-4 py-4 block"
                     onClick={handleLinkClick}
                   >
                     {item.name}

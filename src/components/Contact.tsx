@@ -16,8 +16,8 @@ const ContactCard = ({ icon: Icon, title, value, link }: { icon: React.ElementTy
       <Icon className="text-highlight" size={20} />
     </div>
     <div className="flex-1 min-w-0">
-      <h3 className="text-base sm:text-lg font-semibold mb-1 truncate text-gray-800">{title}</h3>
-      <p className="text-gray-600 text-sm sm:text-base break-words">{value}</p>
+      <h3 className="text-base sm:text-lg font-semibold mb-1 truncate text-text-primary">{title}</h3>
+      <p className="text-text-secondary text-sm sm:text-base break-words">{value}</p>
     </div>
   </motion.a>
 );
@@ -86,8 +86,8 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-gray-800">Get In Touch</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base px-2">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-text-primary">Get In Touch</h2>
+          <p className="text-text-secondary max-w-2xl mx-auto text-sm sm:text-base px-2">
             Have a project in mind or want to work together? Feel free to reach out!
           </p>
           <div className="w-16 sm:w-20 h-1 bg-highlight mx-auto mt-4"></div>
@@ -101,7 +101,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="order-2 md:order-1"
           >
-            <h3 className="text-xl md:text-2xl font-semibold mb-4 sm:mb-6 text-center md:text-left text-gray-800">Contact Information</h3>
+            <h3 className="text-xl md:text-2xl font-semibold mb-4 sm:mb-6 text-center md:text-left text-text-primary">Contact Information</h3>
             <div className="grid gap-4 sm:gap-6">
               <motion.div variants={itemVariants}>
                 <ContactCard 
@@ -145,11 +145,11 @@ const Contact = () => {
             viewport={{ once: true }}
             className="order-1 md:order-2"
           >
-            <h3 className="text-xl md:text-2xl font-semibold mb-4 sm:mb-6 text-center md:text-left text-gray-800">Send Me a Message</h3>
+            <h3 className="text-xl md:text-2xl font-semibold mb-4 sm:mb-6 text-center md:text-left text-text-primary">Send Me a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-1">Name</label>
                   <input
                     type="text"
                     id="name"
@@ -157,12 +157,12 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-highlight text-sm"
+                    className="w-full bg-light-gray border border-gray-200 rounded-lg px-3 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-highlight text-sm"
                     placeholder="Your Name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-1">Email</label>
                   <input
                     type="email"
                     id="email"
@@ -170,13 +170,13 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-highlight text-sm"
+                    className="w-full bg-light-gray border border-gray-200 rounded-lg px-3 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-highlight text-sm"
                     placeholder="your.email@example.com"
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                <label htmlFor="subject" className="block text-sm font-medium text-text-secondary mb-1">Subject</label>
                 <input
                   type="text"
                   id="subject"
@@ -184,12 +184,12 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-highlight text-sm"
+                  className="w-full bg-light-gray border border-gray-200 rounded-lg px-3 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-highlight text-sm"
                   placeholder="Subject"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-1">Message</label>
                 <textarea
                   id="message"
                   name="message"
@@ -197,7 +197,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-highlight resize-none text-sm"
+                  className="w-full bg-light-gray border border-gray-200 rounded-lg px-3 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-highlight resize-none text-sm"
                   placeholder="Your message..."
                 />
               </div>

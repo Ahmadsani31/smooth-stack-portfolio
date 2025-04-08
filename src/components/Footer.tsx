@@ -22,7 +22,7 @@ const Footer = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             <h2 className="text-2xl font-bold text-highlight font-poppins">DevPortfolio</h2>
-            <p className="text-gray-600 mt-2">Full Stack Web Developer</p>
+            <p className="text-text-secondary mt-2">Full Stack Web Developer</p>
           </motion.div>
           
           <motion.div 
@@ -35,38 +35,38 @@ const Footer = () => {
             <div className="flex space-x-4 mb-4">
               <motion.a 
                 href="#" 
-                className="text-gray-600 hover:text-highlight transition-colors duration-300"
-                whileHover={{ scale: 1.2, color: '#8b5cf6' }}
+                className="text-text-secondary hover:text-highlight transition-colors duration-300"
+                whileHover={{ scale: 1.2, color: '#2563EB' }}
                 whileTap={{ scale: 0.9 }}
               >
                 <Github size={20} />
               </motion.a>
               <motion.a 
                 href="#" 
-                className="text-gray-600 hover:text-highlight transition-colors duration-300"
-                whileHover={{ scale: 1.2, color: '#8b5cf6' }}
+                className="text-text-secondary hover:text-highlight transition-colors duration-300"
+                whileHover={{ scale: 1.2, color: '#2563EB' }}
                 whileTap={{ scale: 0.9 }}
               >
                 <Linkedin size={20} />
               </motion.a>
               <motion.a 
                 href="#" 
-                className="text-gray-600 hover:text-highlight transition-colors duration-300"
-                whileHover={{ scale: 1.2, color: '#8b5cf6' }}
+                className="text-text-secondary hover:text-highlight transition-colors duration-300"
+                whileHover={{ scale: 1.2, color: '#2563EB' }}
                 whileTap={{ scale: 0.9 }}
               >
                 <Twitter size={20} />
               </motion.a>
               <motion.a 
                 href="#" 
-                className="text-gray-600 hover:text-highlight transition-colors duration-300"
-                whileHover={{ scale: 1.2, color: '#8b5cf6' }}
+                className="text-text-secondary hover:text-highlight transition-colors duration-300"
+                whileHover={{ scale: 1.2, color: '#2563EB' }}
                 whileTap={{ scale: 0.9 }}
               >
                 <Mail size={20} />
               </motion.a>
             </div>
-            <p className="text-gray-500 text-sm">© {new Date().getFullYear()} - All Rights Reserved</p>
+            <p className="text-text-secondary text-sm">© {new Date().getFullYear()} - All Rights Reserved</p>
           </motion.div>
         </motion.div>
       </div>

@@ -11,8 +11,8 @@ const AboutCard = ({ icon: Icon, title, description }: { icon: React.ElementType
     <div className="bg-highlight/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
       <Icon className="text-highlight" size={24} />
     </div>
-    <h3 className="text-lg font-semibold mb-2 text-gray-800">{title}</h3>
-    <p className="text-gray-600">{description}</p>
+    <h3 className="text-lg font-semibold mb-2 text-text-primary">{title}</h3>
+    <p className="text-text-secondary">{description}</p>
   </motion.div>
 );
 
@@ -42,7 +42,7 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-gray-800">About Me</h2>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-text-primary">About Me</h2>
           <div className="w-20 h-1 bg-highlight mx-auto"></div>
         </motion.div>
         
@@ -54,12 +54,12 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center md:text-left"
           >
-            <h3 className="text-xl md:text-2xl font-semibold mb-4 text-gray-800">Full Stack Web Developer with <span className="text-highlight">Passion for Building</span> Robust Applications</h3>
-            <p className="text-gray-600 mb-6">
+            <h3 className="text-xl md:text-2xl font-semibold mb-4 text-text-primary">Full Stack Web Developer with <span className="text-highlight">Passion for Building</span> Robust Applications</h3>
+            <p className="text-text-secondary mb-6">
               I'm a passionate and detail-oriented Full Stack Web Developer with extensive experience in building scalable, efficient, and user-friendly web applications. 
               My expertise lies in combining my technical skills with creative problem-solving to create solutions that not only meet but exceed client expectations.
             </p>
-            <p className="text-gray-600 mb-6">
+            <p className="text-text-secondary mb-6">
               With a background in both front-end and back-end development, I approach each project with a holistic view, ensuring all components work together seamlessly 
               to create an exceptional user experience.
             </p>

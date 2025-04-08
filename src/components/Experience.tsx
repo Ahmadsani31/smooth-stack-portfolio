@@ -79,11 +79,11 @@ const ExperienceItem = ({ experience, index }: { experience: ExperienceItemProps
           </div>
           <div>
             <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-1 text-center sm:text-left">
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800">{experience.title}</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-text-primary">{experience.title}</h3>
               <span className="text-highlight">@{experience.company}</span>
             </div>
-            <span className="text-gray-500 text-sm block mb-4 text-center sm:text-left">{experience.period}</span>
-            <ul className="list-disc list-inside text-gray-600 space-y-2 text-left">
+            <span className="text-text-secondary text-sm block mb-4 text-center sm:text-left">{experience.period}</span>
+            <ul className="list-disc list-inside text-text-secondary space-y-2 text-left">
               {experience.description.map((item, i) => (
                 <li key={i} className="text-sm sm:text-base">{item}</li>
               ))}
@@ -97,7 +97,7 @@ const ExperienceItem = ({ experience, index }: { experience: ExperienceItemProps
 
 const Experience = () => {
   return (
-    <section id="experience" className="section-padding bg-gray-50 py-16 md:py-24 px-4">
+    <section id="experience" className="section-padding bg-light-gray py-16 md:py-24 px-4">
       <div className="container mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -106,8 +106,8 @@ const Experience = () => {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-gray-800">Experience</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-text-primary">Experience</h2>
+          <p className="text-text-secondary max-w-2xl mx-auto">
             My professional journey in web development and related fields.
           </p>
           <div className="w-20 h-1 bg-highlight mx-auto mt-4"></div>

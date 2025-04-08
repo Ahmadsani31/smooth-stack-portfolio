@@ -63,10 +63,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))"
         },
-        // Updated custom colors for white theme
-        'deep-blue': '#ffffff',
-        'highlight': '#8b5cf6',
-        'light-gray': '#f3f4f6',
+        // Updated custom colors for minimalist modern theme
+        'deep-blue': '#F9FAFB',  // Main background (almost white)
+        'highlight': '#2563EB',  // Accent (elegant blue)
+        'light-gray': '#E5E7EB', // Secondary background
+        'text-primary': '#111827', // Main text (dark gray)
+        'text-secondary': '#4B5563', // Secondary text
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
