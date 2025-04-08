@@ -10,14 +10,14 @@ const ContactCard = ({ icon: Icon, title, value, link }: { icon: React.ElementTy
     href={link || '#'} 
     target={link ? '_blank' : '_self'} 
     rel="noopener noreferrer"
-    className="flex items-start gap-4 bg-card rounded-xl p-6 hover:shadow-lg hover:shadow-highlight/10 transition-all duration-300"
+    className="flex items-start gap-3 sm:gap-4 bg-card rounded-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-highlight/10 transition-all duration-300"
   >
-    <div className="bg-highlight/20 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
-      <Icon className="text-highlight" size={24} />
+    <div className="bg-highlight/20 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center shrink-0">
+      <Icon className="text-highlight" size={20} />
     </div>
-    <div>
-      <h3 className="text-lg font-semibold mb-1">{title}</h3>
-      <p className="text-gray-300">{value}</p>
+    <div className="flex-1 min-w-0">
+      <h3 className="text-base sm:text-lg font-semibold mb-1 truncate">{title}</h3>
+      <p className="text-gray-300 text-sm sm:text-base break-words">{value}</p>
     </div>
   </motion.a>
 );
@@ -84,13 +84,13 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Get In Touch</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base px-2">
             Have a project in mind or want to work together? Feel free to reach out!
           </p>
-          <div className="w-20 h-1 bg-highlight mx-auto mt-4"></div>
+          <div className="w-16 sm:w-20 h-1 bg-highlight mx-auto mt-4"></div>
         </motion.div>
         
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
@@ -101,8 +101,8 @@ const Contact = () => {
             viewport={{ once: true }}
             className="order-2 md:order-1"
           >
-            <h3 className="text-xl md:text-2xl font-semibold mb-6 text-center md:text-left">Contact Information</h3>
-            <div className="grid gap-6">
+            <h3 className="text-xl md:text-2xl font-semibold mb-4 sm:mb-6 text-center md:text-left">Contact Information</h3>
+            <div className="grid gap-4 sm:gap-6">
               <motion.div variants={itemVariants}>
                 <ContactCard 
                   icon={Mail}
@@ -145,7 +145,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="order-1 md:order-2"
           >
-            <h3 className="text-xl md:text-2xl font-semibold mb-6 text-center md:text-left">Send Me a Message</h3>
+            <h3 className="text-xl md:text-2xl font-semibold mb-4 sm:mb-6 text-center md:text-left">Send Me a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -157,7 +157,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-secondary/50 border border-secondary/70 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-highlight"
+                    className="w-full bg-secondary/50 border border-secondary/70 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-highlight text-sm"
                     placeholder="Your Name"
                   />
                 </div>
@@ -170,7 +170,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-secondary/50 border border-secondary/70 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-highlight"
+                    className="w-full bg-secondary/50 border border-secondary/70 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-highlight text-sm"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -184,7 +184,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full bg-secondary/50 border border-secondary/70 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-highlight"
+                  className="w-full bg-secondary/50 border border-secondary/70 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-highlight text-sm"
                   placeholder="Subject"
                 />
               </div>
@@ -196,8 +196,8 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full bg-secondary/50 border border-secondary/70 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-highlight resize-none"
+                  rows={4}
+                  className="w-full bg-secondary/50 border border-secondary/70 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-highlight resize-none text-sm"
                   placeholder="Your message..."
                 />
               </div>
@@ -205,7 +205,7 @@ const Contact = () => {
                 type="submit"
                 disabled={loading}
                 whileTap={{ scale: 0.98 }}
-                className="bg-highlight hover:bg-highlight/80 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 w-full"
+                className="bg-highlight hover:bg-highlight/80 text-white font-medium py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 w-full text-sm sm:text-base"
               >
                 {loading ? (
                   <>
