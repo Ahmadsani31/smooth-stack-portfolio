@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from '@/components/ui/carousel';
-import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogClose, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 interface ProjectImage {
   src: string;
@@ -42,9 +42,13 @@ const ProjectModal = ({ open, onClose, project }: ProjectModalProps) => {
           exit={{ opacity: 0, y: 20 }}
           className="relative"
         >
+          {/* Hidden for screen readers but satisfies the accessibility requirement */}
+          <DialogTitle className="sr-only">{project.title}</DialogTitle>
+          <DialogDescription className="sr-only">{project.description}</DialogDescription>
+          
           <div className="sticky top-0 z-10 bg-deep-blue border-b border-highlight/20 p-4 flex justify-between items-center">
             <h2 className="text-2xl font-bold text-white">{project.title}</h2>
-            <DialogClose className="text-gray-400 hover:text-white">
+            <DialogClose className="text-gray-400 hover:text-white p-2">
               <X size={24} />
             </DialogClose>
           </div>
@@ -105,7 +109,7 @@ const ProjectModal = ({ open, onClose, project }: ProjectModalProps) => {
             </div>
 
             {/* Links */}
-            <div className="flex gap-4 mt-6">
+            <div className="flex flex-wrap gap-4 mt-6">
               {project.liveLink && (
                 <a 
                   href={project.liveLink} 

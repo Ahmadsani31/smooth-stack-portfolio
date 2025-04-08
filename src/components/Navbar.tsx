@@ -31,7 +31,7 @@ const Navbar = () => {
 
   // Close mobile menu when clicking on a link
   const handleLinkClick = () => {
-    if (window.innerWidth < 768) {
+    if (isOpen) {
       setIsOpen(false);
     }
   };
@@ -49,6 +49,18 @@ const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
 
+  // Handle body scroll lock when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   return (
     <nav className={cn(
       'fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-sm',
@@ -58,12 +70,12 @@ const Navbar = () => {
         <a href="#home" className="text-xl md:text-2xl font-bold text-highlight font-poppins">DevPortfolio</a>
         
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-8 items-center">
+        <ul className="hidden md:flex space-x-4 lg:space-x-8 items-center">
           {navItems.map((item) => (
             <li key={item.name}>
               <a
                 href={item.href}
-                className="text-foreground hover:text-highlight transition-colors duration-300"
+                className="text-foreground hover:text-highlight transition-colors duration-300 py-2 px-3"
               >
                 {item.name}
               </a>
@@ -73,7 +85,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Button */}
         <button
-          className="md:hidden text-foreground p-2 menu-button"
+          className="md:hidden text-foreground p-3 menu-button rounded-lg hover:bg-deep-blue/50"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -83,30 +95,32 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="fixed inset-0 top-0 bg-deep-blue/95 z-40 flex flex-col items-center justify-center md:hidden animate-fade-in mobile-menu">
-          <div className="absolute top-0 left-0 right-0 flex justify-between items-center p-4">
+        <div className="fixed inset-0 bg-deep-blue/95 z-40 flex flex-col md:hidden animate-fade-in mobile-menu overflow-y-auto">
+          <div className="sticky top-0 z-10 bg-deep-blue border-b border-highlight/20 p-4 flex justify-between items-center">
             <a href="#home" className="text-xl font-bold text-highlight font-poppins">DevPortfolio</a>
             <button
-              className="text-foreground"
+              className="text-foreground p-2 hover:bg-deep-blue/50 rounded-md"
               onClick={() => setIsOpen(false)}
               aria-label="Close menu"
             >
               <X size={24} />
             </button>
           </div>
-          <ul className="flex flex-col space-y-6 text-center mt-16">
-            {navItems.map((item) => (
-              <li key={item.name} className="text-xl">
-                <a
-                  href={item.href}
-                  className="text-foreground hover:text-highlight transition-colors duration-300 px-4 py-2 block"
-                  onClick={handleLinkClick}
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className="flex-1 flex items-center justify-center min-h-[80vh]">
+            <ul className="flex flex-col space-y-6 text-center w-full">
+              {navItems.map((item) => (
+                <li key={item.name} className="text-xl">
+                  <a
+                    href={item.href}
+                    className="text-foreground hover:text-highlight transition-colors duration-300 px-4 py-4 block"
+                    onClick={handleLinkClick}
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </nav>

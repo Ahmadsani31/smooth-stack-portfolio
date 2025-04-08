@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -7,8 +7,12 @@ import { useIsMobile } from '@/hooks/use-mobile';
 const Hero = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const [hasTypingAnimationRun, setHasTypingAnimationRun] = useState(false);
 
   useEffect(() => {
+    // Run typing animation once component is mounted
+    setHasTypingAnimationRun(true);
+    
     if (isMobile) return; // Disable parallax effect on mobile
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -25,6 +29,21 @@ const Hero = () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
   }, [isMobile]);
+
+  // Ensure vh is set correctly for mobile browsers
+  useEffect(() => {
+    const setVH = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    setVH();
+    window.addEventListener('resize', setVH);
+    
+    return () => {
+      window.removeEventListener('resize', setVH);
+    };
+  }, []);
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-deep-blue relative overflow-hidden pt-16 px-4">
@@ -45,7 +64,9 @@ const Hero = () => {
           >
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 mt-6 lg:mt-0">
               <span className="block mb-2">Hello, I'm</span>
-              <span className="text-highlight block typing-animation overflow-hidden">Full Stack Web Developer</span>
+              <span className={`text-highlight block ${hasTypingAnimationRun ? 'typing-animation' : ''} ${isMobile ? 'mobile-typing' : ''}`}>
+                Full Stack Web Developer
+              </span>
             </h1>
             <p className="text-base md:text-lg text-gray-300 mt-6 mb-8 max-w-xl mx-auto lg:mx-0 animate-fade-in opacity-0" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
               I build modern web applications with clean, efficient code and outstanding user experiences.
