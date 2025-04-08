@@ -63,8 +63,8 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))"
         },
-        // Custom colors for the portfolio
-        'deep-blue': '#1a1e2d',
+        // Updated custom colors for white theme
+        'deep-blue': '#ffffff',
         'highlight': '#8b5cf6',
         'light-gray': '#f3f4f6',
       },

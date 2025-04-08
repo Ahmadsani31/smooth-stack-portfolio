@@ -7,33 +7,33 @@
 
 @layer base {
   :root {
-    --background: 220 33% 14%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
 
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
 
-    --popover: 224 71% 4%;
-    --popover-foreground: 215 20.2% 65.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 262 83% 58%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 265 89% 78%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 10% 3.9%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 10% 3.9%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 262 83% 58%;
 
     --radius: 0.5rem;
 
@@ -75,12 +75,12 @@
   
   /* Tech stack card styles */
   .tech-card {
-    @apply bg-secondary/50 backdrop-blur-sm rounded-xl p-4 hover:shadow-lg hover:shadow-highlight/20 transition-all duration-300 hover:-translate-y-1;
+    @apply bg-white shadow-md rounded-xl p-4 hover:shadow-lg hover:shadow-highlight/20 transition-all duration-300 hover:-translate-y-1;
   }
   
   /* Project card styles */
   .project-card {
-    @apply bg-card rounded-xl overflow-hidden relative transition-all duration-500 hover:shadow-lg hover:shadow-highlight/20;
+    @apply bg-white shadow-md rounded-xl overflow-hidden relative transition-all duration-500 hover:shadow-lg hover:shadow-highlight/20;
   }
   
   /* Timeline styles */

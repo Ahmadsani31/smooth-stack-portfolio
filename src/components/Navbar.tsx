@@ -64,7 +64,7 @@ const Navbar = () => {
   return (
     <nav className={cn(
       'fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-sm',
-      scrolled ? 'bg-deep-blue/80 shadow-lg py-2' : 'bg-transparent py-4'
+      scrolled ? 'bg-white/90 shadow-lg py-2' : 'bg-transparent py-4'
     )}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" className="text-xl md:text-2xl font-bold text-highlight font-poppins">DevPortfolio</a>
@@ -75,7 +75,7 @@ const Navbar = () => {
             <li key={item.name}>
               <a
                 href={item.href}
-                className="text-foreground hover:text-highlight transition-colors duration-300 py-2 px-3"
+                className="text-gray-800 hover:text-highlight transition-colors duration-300 py-2 px-3"
               >
                 {item.name}
               </a>
@@ -85,7 +85,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Button */}
         <button
-          className="md:hidden text-foreground p-3 menu-button rounded-lg hover:bg-deep-blue/50"
+          className="md:hidden text-gray-800 p-3 menu-button rounded-lg hover:bg-gray-100"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -95,11 +95,11 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="fixed inset-0 bg-deep-blue/95 z-40 flex flex-col md:hidden animate-fade-in mobile-menu overflow-y-auto">
-          <div className="sticky top-0 z-10 bg-deep-blue border-b border-highlight/20 p-4 flex justify-between items-center">
+        <div className="fixed inset-0 bg-white z-40 flex flex-col md:hidden animate-fade-in mobile-menu overflow-y-auto">
+          <div className="sticky top-0 z-10 bg-white border-b border-gray-200 p-4 flex justify-between items-center">
             <a href="#home" className="text-xl font-bold text-highlight font-poppins">DevPortfolio</a>
             <button
-              className="text-foreground p-2 hover:bg-deep-blue/50 rounded-md"
+              className="text-gray-800 p-2 hover:bg-gray-100 rounded-md"
               onClick={() => setIsOpen(false)}
               aria-label="Close menu"
             >
@@ -112,7 +112,7 @@ const Navbar = () => {
                 <li key={item.name} className="text-xl">
                   <a
                     href={item.href}
-                    className="text-foreground hover:text-highlight transition-colors duration-300 px-4 py-4 block"
+                    className="text-gray-800 hover:text-highlight transition-colors duration-300 px-4 py-4 block"
                     onClick={handleLinkClick}
                   >
                     {item.name}
